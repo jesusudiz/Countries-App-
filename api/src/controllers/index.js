@@ -100,7 +100,7 @@ const deleteActivity = async (req, res) => {
         const { id } = req.params;
 
         // Verificar que el id sea válido
-        if (typeof id !== "string" || id.length > 3) {
+        if (typeof id !== "number" ) {
             throw new Error("El ID no es válido");
         }
 

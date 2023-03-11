@@ -11,7 +11,7 @@ const getInfoApi = async () => {
             nombre: country.name.common,
             bandera: country.flags[0],
             continente: country.continents[0],
-            region: country.region,
+            // region: country.region,
             capital: country.capital? country.capital[0]:country.name.common,
             subregion: country.subregion,
             area: country.area,

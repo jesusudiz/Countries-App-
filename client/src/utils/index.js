@@ -1,5 +1,7 @@
 // import { useSelector } from "react-redux";
 
+import { orderAsc,orderDesc } from "../redux/actions";
+
 // //* listado de continentes para el componente NavBar.
 // export const continentes = [
 //     { id: 1, name: "Asia" },
@@ -14,7 +16,7 @@
 
 // //* Listado de ordenamientos para el componente NavBar.
 
-// export const ordenar = [{ id: 1, name: "Nombre ASC" }, { id: 2, name: "Nombre DESC" }, { id: 3, name: "mayor Poblacion" }, { id: 4, name: "menor Poblacion ASC" }];
+export const ordenar = [{ id: 1, name: "Nombre ASC",action: orderAsc }, { id: 2, name: "Nombre DESC" , action: orderDesc}, { id: 3, name: "mayor Poblacion" }, { id: 4, name: "menor Poblacion ASC" }];
 
 // //* funcion para el input de busqueda en Navbar.
 

@@ -1,4 +1,4 @@
-import { GET_ALL_COUNTRY ,GET_COUNTRY_BY_ID,GET_BY_NAME_COUNTRY,GET_ALL_ACTIVITIES,ADD_ACTIVITIES,DELETE_COUNTRY,ADD_FAVORITES,DELETE_FAVORITES,DELETE_ACTIVITIES,ORDER_ASC,ORDER_DESC,GET_BY_CONTINENT,GET_BY_TYPE_ACTIVITY,ALL_FAVORITES,SET_PAGE } from './actionTypes';
+import { GET_ALL_COUNTRY ,GET_COUNTRY_BY_ID,GET_BY_NAME_COUNTRY,GET_ALL_ACTIVITIES,ADD_ACTIVITIES,DELETE_COUNTRY,ADD_FAVORITES,DELETE_FAVORITES,DELETE_ACTIVITIES,ORDER_ASC,ORDER_DESC,GET_BY_CONTINENT,GET_BY_TYPE_ACTIVITY,ALL_FAVORITES,SET_PAGE,GET_LIST_CONTINENTS } from './types';
 
 const initialState = {
   countries: [],
@@ -6,7 +6,8 @@ const initialState = {
   favorites:[],
   countriesId:[],
   countriesName:[],
-  listOrdered:[]
+  listOrdered:[],
+  continents:[],
 };
 
 const appReducers = (state = initialState, action) => {
@@ -80,6 +81,10 @@ const appReducers = (state = initialState, action) => {
         ...state,
         countries:[...state.countries].filter(country=>country===action.payload)
       }
+      case GET_LIST_CONTINENTS:
+        return{
+          ...state, continents: [...action.payload]
+        }
     case SET_PAGE:
         return {
           ...state,

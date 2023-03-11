@@ -1,6 +1,7 @@
 // import React,{useState,useEffect} from 'react';
-// import {NavBar} from "../components/NavBar";
+import {NavBar} from "../components/NavBar";
 import {CountryList} from "../components/CountryList";
+import {Header} from "../components/Header"
 // import {Loader} from "../components/Loader"
 
 
@@ -8,11 +9,15 @@ import {CountryList} from "../components/CountryList";
 
 export const Home = () => {
   return (
-    <div>
-      
-      {/* <NavBar/> */}
-      <CountryList/>
-    </div>
+    <>
+    <Header/>
+     <NavBar/>
+     
+    
+     <CountryList/>
+    
+    
+    </>
   )
 }
 

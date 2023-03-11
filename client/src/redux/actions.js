@@ -1,61 +1,61 @@
 /* eslint-disable no-template-curly-in-string */
 import axios from 'axios';
-import { GET_ALL_COUNTRY,GET_ALL_ACTIVITIES,GET_COUNTRY_BY_ID,GET_BY_NAME_COUNTRY,ADD_ACTIVITIES,DELETE_COUNTRY,ADD_FAVORITES,DELETE_FAVORITES,ALL_FAVORITES,ORDER_ASC,ORDER_DESC,GET_BY_CONTINENT,GET_BY_TYPE_ACTIVITY,SET_PAGE } from "./types";
+import { GET_ALL_COUNTRY, GET_ALL_ACTIVITIES, GET_COUNTRY_BY_ID, GET_BY_NAME_COUNTRY, ADD_ACTIVITIES, DELETE_COUNTRY, ADD_FAVORITES, DELETE_FAVORITES, ALL_FAVORITES, ORDER_ASC, ORDER_DESC, GET_BY_CONTINENT, GET_BY_TYPE_ACTIVITY, SET_PAGE, GET_LIST_CONTINENTS } from "./types";
 
 //* 1. action-creator para llamar a todos los countries del back-end;
 export const getAllCountry = () => async dispatch => {
-    try {
-      const res = await axios.get('http://localhost:3000/countries');
-      dispatch({
-        type: GET_ALL_COUNTRY,
-        payload: res.data
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  try {
+    const res = await axios.get('http://localhost:3001/countries');
+    dispatch({
+      type: GET_ALL_COUNTRY,
+      payload: res.data
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 //* 2. action-creator para llamar a un country por id.
 
 export const getCountryById = (id) => async dispatch => {
-    try{
-       const res = await axios.get(`http://localhost:3000/countries/${id}`);
+  try {
+    const res = await axios.get(`http://localhost:3001/countries/${id}`);
 
-       dispatch({
-        type:GET_COUNTRY_BY_ID,
-        payload: res
-       })
-    }catch(err) {
-        console.error(err);
-    };
+    dispatch({
+      type: GET_COUNTRY_BY_ID,
+      payload: res
+    })
+  } catch (err) {
+    console.error(err);
+  };
 };
 
 //* 3. action-creator para llamar a un country por name.
 
 export const getByNameCountry = (name) => async dispatch => {
-    try{
-      const res= await axios.get(`http://localhost:3000/countries?name=${name}`);
-      dispatch({
-        type:GET_BY_NAME_COUNTRY,
-        payload:res
-      })
-    }catch(err) {
-        console.error(err);
-    };
+  try {
+    const res = await axios.get(`http://localhost:3001/countries?name=${name}`);
+    dispatch({
+      type: GET_BY_NAME_COUNTRY,
+      payload: res
+    })
+  } catch (err) {
+    console.error(err);
+  };
 };
 
 //* 4. action-creator para llamar a todas las actividades turisticas.
 
 export const getAllActivities = () => async dispatch => {
-    try {
-     const res =await axios.get('http://localhost:3000/activities');
-     dispatch({
-        type:GET_ALL_ACTIVITIES,
-        payload:res.data
-     })
-    }catch (err) { 
-         console.error(err); 
-    }
+  try {
+    const res = await axios.get('http://localhost:3001/activities');
+    dispatch({
+      type: GET_ALL_ACTIVITIES,
+      payload: res.data
+    })
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 //* 5. action-creator para agregar nuevas actividades turisticas.(agregar en la DB los datos del formulario)
@@ -65,7 +65,7 @@ export const getAllActivities = () => async dispatch => {
 export const addActivities = (activityData) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post("http://localhost:3000/activities", activityData);
+      const response = await axios.post("http://localhost:3001/activities", activityData);
       dispatch({ type: ADD_ACTIVITIES, payload: response.data });
     } catch (error) {
       console.log(error);
@@ -80,7 +80,7 @@ export const addActivities = (activityData) => {
 export const deleteCountry = (id) => {
   return async (dispatch) => {
     try {
-      const res= await axios.delete(`http://localhost:3000/countries/${id}`).data;
+      const res = await axios.delete(`http://localhost:3001/countries/${id}`).data;
       dispatch({ type: DELETE_COUNTRY, payload: res });
     } catch (error) {
       console.log(error);
@@ -91,31 +91,31 @@ export const deleteCountry = (id) => {
 //* 7: action-creator para agregar ha favoritos.
 
 export const addFavorites = (selectedItem) => {
-    try{
-      return{
-        type:ADD_FAVORITES,
-        payload: selectedItem
-       }
-    }catch(error){
-        console.error(error)
+  try {
+    return {
+      type: ADD_FAVORITES,
+      payload: selectedItem
     }
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 //* 8: action-creator para agregar ha favoritos.
 
-export const deleteFavorites=(selected)=>{
+export const deleteFavorites = (selected) => {
   return {
-        type: DELETE_FAVORITES,
-        payload: selected
+    type: DELETE_FAVORITES,
+    payload: selected
   }
 }
 
 //* 9: action-creator para agregar ha favoritos.
 
-export const deleteActivities = (id)=>{
+export const deleteActivities = (id) => {
   return async (dispatch) => {
     try {
-      const res= await axios.delete(`http://localhost:3000/activities/${id}`).data;
+      const res = await axios.delete(`http://localhost:3001/activities/${id}`).data;
       dispatch({ type: DELETE_COUNTRY, payload: res });
     } catch (error) {
       console.log(error);
@@ -126,10 +126,10 @@ export const deleteActivities = (id)=>{
 
 //* 10: action-creator para 
 
-export const allFavorites = ()=>{
+export const allFavorites = () => {
   return {
     type: ALL_FAVORITES,
-    
+
   }
 }
 
@@ -154,16 +154,16 @@ export const orderDesc = (list) => {
 
 //* 13: action- creator para obtener datos  por continente:
 
-export const getByContinent=(ContinentName)=>{
+export const getByContinent = (ContinentName) => {
   return {
-    type:GET_BY_CONTINENT,
+    type: GET_BY_CONTINENT,
     payload: ContinentName
   }
 }
 
 //*14: action-creator para obtener datos por actividades turisticas
-export const getByTypeActivity=(TypeActivity)=>{
-  return{
+export const getByTypeActivity = (TypeActivity) => {
+  return {
     type: GET_BY_TYPE_ACTIVITY,
     payload: TypeActivity
   }
@@ -172,7 +172,7 @@ export const getByTypeActivity=(TypeActivity)=>{
 //*15: action-creator para el paginado
 
 
-export const setPage = (actionType, pageSize=20, list, currentPage, property) => {
+export const setPage = (actionType, pageSize = 20, list, currentPage, property) => {
   let page;
   if (actionType === 'prev') {
     page = currentPage - 1;
@@ -194,3 +194,23 @@ export const setPage = (actionType, pageSize=20, list, currentPage, property) =>
     },
   };
 };
+
+//*17: lista de continentes
+
+export const getListContinents = () => {
+  return async (dispatch) => {
+    try {
+      const continentes = await axios.get('http://localhost:3001/countries');
+
+      const list = [...new Set(continentes.data.map(country => country.continente))];
+
+      return {
+        type: GET_LIST_CONTINENTS,
+        payload: list,
+      }
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
