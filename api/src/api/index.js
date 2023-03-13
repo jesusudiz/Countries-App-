@@ -18,9 +18,7 @@ const getInfoApi = async () => {
             poblacion: country.population,
             mapa: country.maps.googleMaps,
             // moneda: country.currencies && Object.keys(country.currencies).length > 0 ? `${country.currencies[Object.keys(country.currencies)[0]].name} (${country.currencies[Object.keys(country.currencies)[0]].symbol})` : ""
-
         }
-
     })
   
    for (const country of countries) {

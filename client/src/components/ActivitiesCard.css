@@ -1,0 +1,15 @@
+.activities-card {
+    background-image: url("../img/turismo.jpeg");
+    background-size: cover;
+    width: 350px;
+    height: 350px;
+    min-width: 300px;
+    min-height: 300px;
+    filter:sepia(100%)  ;
+    -webkit-filter:sepia(100%)  ;
+}
+  
+.activities-card:hover {
+     filter: mone;
+     -webkit-filter: mone;
+}

@@ -2,15 +2,17 @@ import React from "react";
 import './App.css';
 // import { Activity } from "./pages/Activity";
 // import { Landing } from "./pages/Landing";
-import { Home } from "./pages/Home";
+// import { Home } from "./pages/Home";
 // import { Details } from "./pages/Details";
 // import { NotFound } from "./pages/NotFound";
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import {Formulario} from './components/Formulario'
 function App() {
   return (
     <div>
-      <Home/>
+      <Formulario/>
+      {/* <Activity/> */}
+      {/* <Home/> */}
     </div>
   //  <Router>
   //   <Switch>

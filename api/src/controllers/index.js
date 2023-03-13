@@ -7,8 +7,9 @@ const getCountries = async (req, res) => {
         const { name } = req.query;
 
         if (name) {
+            const nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
             const country = await Country.findOne({
-                where: { nombre: name }
+                where: { nombre: nameCapitalized }
             });
 
             if (!country) {
@@ -44,20 +45,43 @@ const getCountriesById = async (req, res) => {
 
 const postActivities = async (req, res) => {
     try {
-        const { nombre, dificultad, duracion, temporada, idCountry } = req.body;
-        if (!nombre || !dificultad || !duracion || !temporada || !idCountry) {
+        const { nombre, dificultad, duracion, temporada, pais } = req.body;
+        if (!nombre || !dificultad || !duracion || !temporada || !pais) {
             throw new Error("Faltan parámetros, por favor ingrese todos los datos");
         }
+       
+        if (isNaN(dificultad) || isNaN(duracion)) {
+            throw new Error("La dificultad debe ser un entero y la duración debe ser un número");
+        }
+       let setDificultad = parseInt(dificultad);
+       let setDuracion = parseFloat(duracion);
         const activity = {
-            nombre,
-            dificultad,
-            duracion,
-            temporada,
-            idCountry
+            nombre:nombre,
+            dificultad:setDificultad,
+            duracion:setDuracion,
+            temporada:temporada,
+            pais:pais
         };
 
         await Activity.create(activity);
-
+       
+        
+        const paises = activity.pais;
+        const activities = [activity].map(item => {
+            return {
+                nombre: item.nombre,
+                dificultad: item.dificultad,
+                duracion: item.duracion,
+                temporada: item.temporada
+            }
+        });
+        const countries = await Country.findAll({ where: { nombre: paises } });
+        const promises = [];
+        for (const country of countries) {
+            promises.push(country.addActivity(activities));
+        }
+        await Promise.all(promises);
+        
         return res.status(201).send({ message: "Creado exitosamente" });
     } catch (error) {
         return res.status(400).send({ message: error.message });
@@ -100,7 +124,7 @@ const deleteActivity = async (req, res) => {
         const { id } = req.params;
 
         // Verificar que el id sea válido
-        if (typeof id !== "number" ) {
+        if (typeof id !== "number") {
             throw new Error("El ID no es válido");
         }
 

@@ -2,8 +2,11 @@
     --dim: 3rem;
     width: var(--dim);
     height: var(--dim);
-    position: relative;
-    animation: spin988 2s linear infinite;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   }
   
   .loader .circle {

@@ -29,8 +29,8 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera'),
       allowNull: true
     },
-    idCountry: {
-      type: DataTypes.STRING, 
+    pais: {
+      type: DataTypes.ARRAY(DataTypes.STRING), 
       allowNull: false 
     }
   }, {
