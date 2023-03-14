@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import * as action from '../redux/actions'
 import { useDispatch,useSelector } from "react-redux";
-// // import { NavLink } from 'react-router-dom';
+// import { Header } from "../components/Header";
+
+// import { NavLink } from 'react-router-dom';
 
 import './NavBar.css';
 
@@ -11,9 +13,9 @@ export const NavBar = () => {
   const dispatch = useDispatch();
   const activities = useSelector(state=>state.NameActivities)
 
-  const eventsApp = (event) => {
+  const eventsApp = (e) => {
 
-    switch (event.target.innerText) {
+    switch (e.target.innerText) {
       case 'Orden Alfabetico ASC':
         dispatch(action.orderAsc())
         break;
@@ -27,25 +29,25 @@ export const NavBar = () => {
         dispatch(action.lowerPopulation())
         break;
       case 'Europe':
-        dispatch(action.getByContinent(event.target.innerText))
+        dispatch(action.getByContinent(e.target.innerText))
         break;
       case 'Africa':
-        dispatch(action.getByContinent(event.target.innerText))
+        dispatch(action.getByContinent(e.target.innerText))
         break;
       case 'Oceania':
-        dispatch(action.getByContinent(event.target.innerText))
+        dispatch(action.getByContinent(e.target.innerText))
         break;
       case 'Antarctica':
-        dispatch(action.getByContinent(event.target.innerText))
+        dispatch(action.getByContinent(e.target.innerText))
         break;
       case 'Asia':
-        dispatch(action.getByContinent(event.target.innerText))
+        dispatch(action.getByContinent(e.target.innerText))
         break;
       case 'North America':
-        dispatch(action.getByContinent(event.target.innerText))
+        dispatch(action.getByContinent(e.target.innerText))
         break;
       case 'South America':
-        dispatch(action.getByContinent(event.target.innerText))
+        dispatch(action.getByContinent(e.target.innerText))
         break;
       case 'Favoritos':
         dispatch(action.allFavorites());
@@ -61,18 +63,21 @@ export const NavBar = () => {
 
   }
   return (
+    
+  
     <div className="navbar-container">
+      
       <div className="dropdown clicked">
         <span>Continentes <FontAwesomeIcon icon={faChevronDown} /></span>
         <div className="dropdown-content">
           <ul>
-            <li onClick={(event) => eventsApp(event)}>Europe</li>
-            <li onClick={(event) => eventsApp(event)}>Africa</li>
-            <li onClick={(event) => eventsApp(event)}>Oceania</li>
-            <li onClick={(event) => eventsApp(event)}>Antarctica</li>
-            <li onClick={(event) => eventsApp(event)}>Asia</li>
-            <li onClick={(event) => eventsApp(event)}>North America</li>
-            <li onClick={(event) => eventsApp(event)}>South America</li>
+            <li onClick={(e) => eventsApp(e)}>Europe</li>
+            <li onClick={(e) => eventsApp(e)}>Africa</li>
+            <li onClick={(e) => eventsApp(e)}>Oceania</li>
+            <li onClick={(e) => eventsApp(e)}>Antarctica</li>
+            <li onClick={(e) => eventsApp(e)}>Asia</li>
+            <li onClick={(e) => eventsApp(e)}>North America</li>
+            <li onClick={(e) => eventsApp(e)}>South America</li>
 
           </ul>
         </div>
@@ -81,29 +86,36 @@ export const NavBar = () => {
         <span>Filtrar  <FontAwesomeIcon icon={faChevronDown} /></span>
         <div className="dropdown-content">
           <ul>
-            <li onClick={(event) => eventsApp(event)}>Mayor Poblacion</li>
-            <li onClick={(event) => eventsApp(event)}>Menor Población</li>
-            <li onClick={(event) => eventsApp(event)}>Orden Alfabetico ASC</li>
-            <li onClick={(event) => eventsApp(event)}>Orden Alfabetico DESC</li>
+            <li onClick={(e) => eventsApp(e)}>Mayor Poblacion</li>
+            <li onClick={(e) => eventsApp(e)}>Menor Población</li>
+            <li onClick={(e) => eventsApp(e)}>Orden Alfabetico ASC</li>
+            <li onClick={(e) => eventsApp(e)}>Orden Alfabetico DESC</li>
           </ul>
         </div>
       </div>
 
     { activities.length > 0 &&  <div className="dropdown clicked">
-        <span>Actividades Turísticas  <FontAwesomeIcon icon={faChevronDown} /></span>
+     
+        <span>Actividades Turísticas</span> 
+        <FontAwesomeIcon icon={faChevronDown} />
+        
         <div className="dropdown-content">
           <ul>
-            {activities.map((activity,index)=><li key={`${index}${activity}`} onClick={(event) => eventsApp(event)}>{activity}</li>)}
+            {activities.map((activity,index)=><li key={`${index}${activity}`} onClick={(e) => eventsApp(e)}>{activity}</li>)}
           </ul>
         </div>
       </div> }
-      <div className="dropdown clicked">
-        <span onClick={(event) => eventsApp(event)}>Favoritos</span>
+      <div className="show-favoritos">
+      
+        <span>Favoritos</span>
+
       </div>
-      <div className="dropdown clicked">
-        <span onClick={(event) => eventsApp(event)}>Todos los Paises</span>
+
+      <div className="show-paises">
+        <span onClick={(e) => eventsApp(e)}>Todos los Paises</span>
       </div>
     </div>
+    
   );
 };
 

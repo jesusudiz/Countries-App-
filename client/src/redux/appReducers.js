@@ -5,7 +5,8 @@ const initialState = {
   activities:[],
   favorites: [],
   listCountries:[],
-  nameActivities:[]
+  nameActivities:[],
+  details:[]
 };
 
 const appReducers = (state = initialState, action) => {
@@ -18,7 +19,7 @@ const appReducers = (state = initialState, action) => {
     case GET_COUNTRY_BY_ID:
       return{
         ...state,
-        countries: action.payload
+        details: action.payload
       }
     case GET_BY_NAME_COUNTRY:
         return {

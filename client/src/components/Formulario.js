@@ -43,14 +43,14 @@ export const Formulario = () => {
     try {
       dispatch(addActivities(actividad));
       setMostrarExito(true);
-      setMensaje("success")
-      setFormSubmitted(true);
+      setMensaje("success");
       setNombre('');
       setDificultad(1);
       setDuracion(0);
       setTemporada('');
       setPais([]);
       setPaisesSeleccionados([]);
+      setFormSubmitted(!formSubmitted);
     } catch (error) {
       console.error(error);
     }

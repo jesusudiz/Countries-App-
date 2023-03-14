@@ -9,12 +9,12 @@ export const Country = ({ pais }) => {
 const [favorite, setFavorite] = useState(false);
 const dispatch = useDispatch();
 
-const selectFavorites = (country) => {
+const selectFavorites = (e) => {
 setFavorite(!favorite)
 if (favorite) {
-dispatch(addFavorites(country.id));
+dispatch(addFavorites(e.target.value));
 } else {
-dispatch(deleteFavorites(country.id));
+dispatch(deleteFavorites(e.target.value));
 }
 }
 
@@ -32,7 +32,7 @@ return (
 </div>
 <div className="container-favoritos">
 <label className="favoritos">
-<input type="checkbox" onChange={() => selectFavorites(pais)}/>
+<input type="checkbox" value={pais.id} onChange={(e) => selectFavorites(e.target.value)}/>
 <div className="checkmark"></div>
 </label>
 </div>

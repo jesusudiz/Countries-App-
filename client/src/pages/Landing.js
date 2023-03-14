@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 export const Landing = () => {;
   return (
     <div>
-      <NavLink to={"/Home"}>Home</NavLink>
-
+      <NavLink to="/home">Home</NavLink>
+soy landing
     </div>
   )
 }
