@@ -1,23 +1,32 @@
 
 
-import React, { useState } from 'react';
+import React from 'react';
 import "./Country.css"
 import { useDispatch} from 'react-redux';
 import { addFavorites, deleteFavorites } from '../redux/actions'
+import {NavLink} from 'react-router-dom';
+import { getCountryById } from '../redux/actions';
+
+
+
 
 export const Country = ({ pais }) => {
-const [favorite, setFavorite] = useState(false);
+
 const dispatch = useDispatch();
 
 const selectFavorites = (e) => {
-setFavorite(!favorite)
-if (favorite) {
-dispatch(addFavorites(e.target.value));
-} else {
-dispatch(deleteFavorites(e.target.value));
-}
-}
+    e.preventDefault();
+   
+    if (e.target.checked) {
+      dispatch(addFavorites(e.target.value));
+    } else {
+      dispatch(deleteFavorites(e.target.value));
+    }
+  }
 
+  const viewCountry=()=>{
+    dispatch(getCountryById(pais.id))
+  }
 return (
 <div className="country">
 <div className="country-content-img">
@@ -27,12 +36,12 @@ return (
 <span>{pais.nombre}</span>
 <span>{pais.continente}</span>
 <div className="country-btn">
-<button>Detalles</button>
+<NavLink to="/details"><button onClick={viewCountry}>Detalles</button></NavLink>
 </div>
 </div>
 <div className="container-favoritos">
 <label className="favoritos">
-<input type="checkbox" value={pais.id} onChange={(e) => selectFavorites(e.target.value)}/>
+<input type="checkbox" value={pais.id} onChange={selectFavorites}/>
 <div className="checkmark"></div>
 </label>
 </div>

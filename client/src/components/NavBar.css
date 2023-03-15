@@ -1,16 +1,18 @@
-*{
+/* *{
     margin: 0;
     padding:0;
     box-sizing:border-box;
-}
+} */
 
 .navbar-container {
     display: flex;
     justify-content: center;
     align-items:center;
-    background:#fff159ff;
+    background:rgba(6, 6, 7, 0.397);
     gap:2rem;
     height:3rem;
+    width: 100%;
+   
 }
 
 .dropdown{
@@ -48,10 +50,11 @@
 
 .dropdown > span {
 font-size:1rem;
-font-weight: small;
-font-family: "Arial";
+font-weight: 400;
+font-family: "Inter",sans-serif;
 cursor: pointer;
 letter-spacing:1.5px;
+color:rgba(0, 0, 0, 0.61)
 }
 .dropdown > span > svg {
     margin-left: 5px;
@@ -83,4 +86,128 @@ letter-spacing:1.5px;
     position:absolute;
     top: 18px;
     background-color: #fcf7f7ee;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .navbar-container {
+      flex-direction: column;
+      height: auto;
+      padding: 1rem;
+    }
+  
+    .dropdown {
+      margin: 0;
+    }
+  
+    .dropdown-content {
+      position: static;
+      display: block;
+      background-color: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+    }
+  
+    .dropdown > span {
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+  
+    .dropdown-content li {
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Estilos para pantalla mediana */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .navbar-container {
+      justify-content: space-between;
+      padding: 1rem;
+    }
+  
+    .dropdown {
+      margin-right: 5px;
+    }
+  
+    .dropdown-content {
+      top: 22px;
+    }
+  }
+  
+  /* Estilos para pantalla grande */
+  @media only screen and (min-width: 769px) {
+    .navbar-container {
+      justify-content: center;
+      height: 3rem;
+    }
+  
+    .dropdown {
+      margin-right: 10px;
+    }
+  
+    .dropdown-content {
+      top: 18px;
+    }
+  }
+  
+  /* Clases de estilos */
+  .navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fcfffe;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    color: rgb(0, 0, 0, 0.4);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .dropdown > span {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    color: rgba(0, 0, 0, 0.61);
+  }
+  
+  .dropdown > span > svg {
+    margin-left: 5px;
+  }
+  
+  .dropdown-content li {
+    width: 100%;
+    cursor: pointer;
+    list-style-type: none;
+    padding: 1rem;
+    font-weight: lighter;
   }

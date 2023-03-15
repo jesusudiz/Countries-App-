@@ -1,0 +1,37 @@
+
+.detalle{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(4, 1fr); 
+    width:100%; 
+    height: auto; 
+    grid-column-gap: 10px;
+    grid-row-gap: 2rem;
+    margin-top:3rem
+}
+.container-bandera{
+    display:flex;
+    justify-content: flex-start;
+    align-content: center;
+    width: 350px;
+    height: 350px;
+    padding:3rem
+
+}
+.detalle-bandera{
+width: 100%;
+height:100%;
+display: flex;
+}
+
+.detalle-bandera > img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    max-height: 500px;
+    object-fit: contain;
+  }
+  
+.detalle-text{
+    text-justify: auto;
+}

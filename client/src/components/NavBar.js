@@ -2,16 +2,16 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import * as action from '../redux/actions'
-import { useDispatch,useSelector } from "react-redux";
-// import { Header } from "../components/Header";
+import { useDispatch } from "react-redux";
+import { NavLink } from 'react-router-dom';
+import { Header } from "../components/Header";
 
-// import { NavLink } from 'react-router-dom';
 
 import './NavBar.css';
 
 export const NavBar = () => {
   const dispatch = useDispatch();
-  const activities = useSelector(state=>state.NameActivities)
+  // const activities = useSelector(state => state.NameActivities)
 
   const eventsApp = (e) => {
 
@@ -49,73 +49,67 @@ export const NavBar = () => {
       case 'South America':
         dispatch(action.getByContinent(e.target.innerText))
         break;
-      case 'Favoritos':
-        dispatch(action.allFavorites());
-        break;
       case 'Todos los Paises':
         dispatch(action.getAllCountry());
         break;
       default:
-        return 'no se realizo un evento'
+        dispatch(action.getAllCountry());
 
     }
 
 
   }
   return (
-    
-  
-    <div className="navbar-container">
-      
-      <div className="dropdown clicked">
-        <span>Continentes <FontAwesomeIcon icon={faChevronDown} /></span>
-        <div className="dropdown-content">
-          <ul>
-            <li onClick={(e) => eventsApp(e)}>Europe</li>
-            <li onClick={(e) => eventsApp(e)}>Africa</li>
-            <li onClick={(e) => eventsApp(e)}>Oceania</li>
-            <li onClick={(e) => eventsApp(e)}>Antarctica</li>
-            <li onClick={(e) => eventsApp(e)}>Asia</li>
-            <li onClick={(e) => eventsApp(e)}>North America</li>
-            <li onClick={(e) => eventsApp(e)}>South America</li>
 
-          </ul>
+    <>
+      <Header />
+      <div className="navbar-container">
+
+        <div className="dropdown clicked">
+          <span>Continentes <FontAwesomeIcon icon={faChevronDown} /></span>
+          <div className="dropdown-content">
+            <ul>
+              <li onClick={(e) => eventsApp(e)}>Europe</li>
+              <li onClick={(e) => eventsApp(e)}>Africa</li>
+              <li onClick={(e) => eventsApp(e)}>Oceania</li>
+              <li onClick={(e) => eventsApp(e)}>Antarctica</li>
+              <li onClick={(e) => eventsApp(e)}>Asia</li>
+              <li onClick={(e) => eventsApp(e)}>North America</li>
+              <li onClick={(e) => eventsApp(e)}>South America</li>
+
+            </ul>
+          </div>
+        </div>
+        <div className="dropdown clicked">
+          <span>Filtrar  <FontAwesomeIcon icon={faChevronDown} /></span>
+          <div className="dropdown-content">
+            <ul>
+              <li onClick={(e) => eventsApp(e)}>Mayor Poblacion</li>
+              <li onClick={(e) => eventsApp(e)}>Menor Población</li>
+              <li onClick={(e) => eventsApp(e)}>Orden Alfabetico ASC</li>
+              <li onClick={(e) => eventsApp(e)}>Orden Alfabetico DESC</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="dropdown clicked">
+
+          <NavLink to="/activity"> <span>Actividades Turísticas </span> </NavLink>
+
+        </div>
+
+        <div className="dropdown ">
+
+          <NavLink to="/favorites"> <span>Favoritos</span>  </NavLink>
+
+        </div>
+
+        <div className="dropdown ">
+        <NavLink to="/home"> <span onClick={(e) => eventsApp(e)}>Todos los Paises</span> </NavLink> 
         </div>
       </div>
-      <div className="dropdown clicked">
-        <span>Filtrar  <FontAwesomeIcon icon={faChevronDown} /></span>
-        <div className="dropdown-content">
-          <ul>
-            <li onClick={(e) => eventsApp(e)}>Mayor Poblacion</li>
-            <li onClick={(e) => eventsApp(e)}>Menor Población</li>
-            <li onClick={(e) => eventsApp(e)}>Orden Alfabetico ASC</li>
-            <li onClick={(e) => eventsApp(e)}>Orden Alfabetico DESC</li>
-          </ul>
-        </div>
-      </div>
+    </>
 
-    { activities.length > 0 &&  <div className="dropdown clicked">
-     
-        <span>Actividades Turísticas</span> 
-        <FontAwesomeIcon icon={faChevronDown} />
-        
-        <div className="dropdown-content">
-          <ul>
-            {activities.map((activity,index)=><li key={`${index}${activity}`} onClick={(e) => eventsApp(e)}>{activity}</li>)}
-          </ul>
-        </div>
-      </div> }
-      <div className="show-favoritos">
-      
-        <span>Favoritos</span>
-
-      </div>
-
-      <div className="show-paises">
-        <span onClick={(e) => eventsApp(e)}>Todos los Paises</span>
-      </div>
-    </div>
-    
   );
 };
 

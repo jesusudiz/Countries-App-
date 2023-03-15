@@ -3,7 +3,7 @@ import "./Header.css"
 
 import { useSelector, useDispatch } from "react-redux"
 import { getByNameCountry } from "../redux/actions"
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Header = () => {
     const countrySearched = useSelector(state => state.countries);
@@ -45,20 +45,20 @@ export const Header = () => {
             </div>
             <div className="input-form">
 
-                <input className="input" value={searchValue} onChange={(e) => searchInput(e)} onKeyDown={(e) => searchInput(e)} type="text" required="" placeholder="Buscar..." />
-                {nameNotFound && <p>{nameNotFound.message}</p>}
+                <input className="input" value={searchValue} onChange={searchInput} onKeyDown={(e) => searchInput(e)} type="text" required="" placeholder="Buscar..." />
+                {nameNotFound && <p id="msj">{nameNotFound.message}</p>}
             </div>
             <div className="header-container-btn">
             <div className="header-btn">
-             {/* <NavLink to="/landing">  */}
+             <NavLink to="/"> 
              <span>Inicio</span>
-             {/* </NavLink>  */}
+             </NavLink> 
             </div>
 
             <div className="header-btn">
-            {/* <NavLink to='/create'> */}
+            <NavLink to='/create'>
                <span>Agregar Actividad</span>
-            {/* </NavLink> */}
+            </NavLink>
             </div>
 
             </div>

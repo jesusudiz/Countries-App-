@@ -1,15 +1,102 @@
 .activities-card {
     background-image: url("../img/turismo.jpeg");
     background-size: cover;
-    width: 350px;
-    height: 350px;
-    min-width: 300px;
-    min-height: 300px;
-    filter:sepia(100%)  ;
-    -webkit-filter:sepia(100%)  ;
-}
+    width: 250px;
+    height: 300px;
+    min-width: 200px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
   
+}
+
 .activities-card:hover {
-     filter: mone;
-     -webkit-filter: mone;
+    -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.activities-id {
+    background-color:transparent;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.activities-id p{
+    color:rgb(255, 239, 59);
+}
+.activities-text {
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    
+    width: 80%;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+    background-color: rgba(240, 248, 255, 0.781);
+    color: white
+}
+
+.activities-text span {
+    color: black;
+    font-weight: bold;
+}
+
+.activities-text p {
+    color: black;
+    font-weight: 500;
+}
+
+.activities-tittle h2 {
+    text-transform: uppercase;
+    color:rgb(255, 89, 89);
+}
+
+
+
+.text-activity{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+}
+@-webkit-keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+@keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
 }

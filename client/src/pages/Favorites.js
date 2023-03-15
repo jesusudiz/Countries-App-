@@ -1,18 +1,26 @@
-// import { NavBar } from "../components/NavBar";
-// import { CountryList } from "../components/CountryList";
-// import { Header } from "../components/Header"
-// import { NavBar } from "../components/NavBar";
-// import { Header } from "../components/Header";
 import {FavoritesList} from "../components/FavoritesList"
+import { useSelector } from "react-redux";
+import { Loader } from "../components/Loader"
+
 export const Favorites = () => {
-  
-
-
+  const favorites = useSelector(state => state.favorites);
+  const isLoading = useSelector(state => state.isLoading);
 
   return (
     <>
-   <FavoritesList/>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {favorites.length === 0 ? (
+            <div className="mensaje">
+            <h2>Aún no se han seleccionado favoritos</h2>
+            </div>
+          ) : (
+            <FavoritesList />
+          )}
+        </>
+      )}
     </>
   )
 }
-

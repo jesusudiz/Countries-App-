@@ -1,0 +1,12 @@
+
+.container-activities {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(4, 1fr); 
+    max-width: 100%;
+    height: auto; 
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    margin-top:3rem;
+    padding:1.5rem;
+  }

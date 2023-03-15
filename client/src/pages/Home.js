@@ -1,7 +1,5 @@
 import React from 'react';
-import { NavBar } from "../components/NavBar";
-// import { CountryList } from "../components/CountryList";
-//  import { Header } from "../components/Header";
+import { CountryList } from "../components/CountryList";
 
 
 export const Home = () => {
@@ -11,9 +9,12 @@ export const Home = () => {
 
   return (
     <>
-      <NavBar/>   
-      {/* <Header/> */}
-      {/* <CountryList /> */}
+      
+    
+<section>
+<CountryList />
+</section>
+      
     </>
   )
 }

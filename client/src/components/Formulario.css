@@ -1,86 +1,94 @@
 .contenedor-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2px;
-    width: fit-content;
-    height: fit-content;
-    background: #FFFFFF;
-    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 26px;
-    max-width: 400px;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  width: fit-content;
+  height: fit-content;
+  background: #FFFFFF;
+  box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 26px;
+  max-width: 400px;
+
 }
-.contenedor-form h3{
-    margin-top: 2rem;
-   
+
+.contenedor-form h3 {
+  margin-top: 2rem;
+
 }
-    
-    .contenedor-form form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+.contenedor-form form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 10px;
   margin-top: 2rem;
   padding: 20px;
-    }
-    
-    .form-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    text-align: center;
-    }
-    .form-content label{
-        display: block;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.form-content label {
+  display: block;
   margin-bottom: .3rem;
   font-size: .9rem;
   font-weight: 500;
   color: #05060f99;
-  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
-    }
-    .form-content input{
-        max-width: 190px;
-        height: 44px;
-        background-color: #05060f0a;
-        border-radius: .5rem;
-        padding: 0 1rem;
-        border: 2px solid transparent;
-        font-size: 1rem;
-        transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
-    }
-    .form-content select {
-        max-width: 190px;
-        height: 44px;
-        background-color: #05060f0a;
-        border-radius: .5rem;
-        padding: 0 1rem;
-        border: 1px solid transparent;
-        font-size: 1rem;
-        transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
-      }
-    .form-btn{
-        height: 3em;
-        width: 8em;
-        border: none;
-        border-radius: 10em;
-        background: #016DD9;
-        font-size: 17px;
-        color: #ffffff;
-        font-family: inherit;
-        font-weight: 500;
-        justify-content: center; 
-        align-items: center;
-       
-    }
-    
-    .form-content input:hover,.form-content input:focus,.form-content:hover {
-        outline: none;
-        border-color: #05060f;
-      }
-   
-      #duracion,#dificultad{
-        width: 90px;
-      }
+  transition: color .3s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.form-content input {
+  max-width: 190px;
+  height: 44px;
+  background-color: #05060f0a;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.form-content select {
+  max-width: 190px;
+  height: 44px;
+  background-color: #05060f0a;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.form-btn {
+  height: 3em;
+  width: 8em;
+  border: none;
+  border-radius: 10em;
+  background: #016DD9;
+  font-size: 17px;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer
+}
+
+.form-content input:hover,
+.form-content input:focus,
+.form-content:hover {
+  outline: none;
+  border-color: #05060f;
+}
+
+#duracion,
+#dificultad {
+  width: 90px;
+}

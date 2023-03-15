@@ -1,18 +1,27 @@
 import React from 'react'
 
-import  './ActivitiesCard.css';
+import './ActivitiesCard.css';
 
-export const ActivitiesCard = ({actividad}) => {
+export const ActivitiesCard = ({ actividad }) => {
   return (
     <div className='activities-card'>
-      <div className='activities-id'>{actividad.id}</div>
-      <div className='activities-tittle'> <h3>{actividad.nombre}</h3></div>
-      <div className='activities-text'>
-        <span>{actividad.dificultad}</span>
-        <span>{actividad.duracion}</span>
+<div className='activities-text'>
 
 
+      <div className='activities-id'>
+        <div ><p>{actividad.id}</p></div>
       </div>
+
+      <div className='activities-tittle'>
+        <p>Actividad Turística </p>
+        <h2>{actividad.nombre}</h2>
+      </div>
+
+      <div className="text-activity">
+        <span>Nivel de dificultad:{actividad.dificultad}</span>
+        <span>Horas de duracion:{actividad.duracion}</span>
+      </div>
+</div>
 
     </div>
   )

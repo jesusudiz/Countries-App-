@@ -8,7 +8,7 @@ import { Loader } from './Loader'
 
 
 
-export const CountryList = () => {
+export const FavoritesList = () => {
   const favoritesCountry = useSelector(state => state.favorites)
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
