@@ -14,7 +14,7 @@ export const SuccessMessage = ({ type }) => {
     
   return (
     <div className={type === "success" ? "success" : "error"}>
-      {type === "success" ? <p>¡Guardado exitosamente!</p> : <p>¡Ha ocurrido un error!</p>}
+      {type === "success" ? <p>¡Guardado exitosamente!</p> : <p>¡Por favor rellene todos los campos!</p>}
     </div>
   );
 };

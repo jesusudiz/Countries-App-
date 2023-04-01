@@ -20,6 +20,8 @@ export const ActivitiesCard = ({ actividad }) => {
       <div className="text-activity">
         <span>Nivel de dificultad:{actividad.dificultad}</span>
         <span>Horas de duracion:{actividad.duracion}</span>
+        <span>{actividad.temporada}</span>
+
       </div>
 </div>
 

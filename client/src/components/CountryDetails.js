@@ -18,21 +18,23 @@ export const CountryDetails = ({ id }) => {
     return (
         <>
             {isLoading ? (<Loader />) : (
-                <div className='detalle'>
+                <div className='detalles'>
+                    <div className='container-detalles'>
 
-                    <div className='container-bandera'>
-                        <div className='detalle-bandera'>
-                            <img src={detalle.bandera} alt="Bandera del pais" />
+                        <div className='container-bandera'>
+                            <div className='detalle-bandera'>
+                                <img src={detalle.bandera} alt="Bandera del pais" />
+                            </div>
                         </div>
-                    </div>
 
 
-                    <div className='detalle-text'>
-                        <h2>{detalle.nombre}</h2>
-                        <div className='detalle-id'>
-                            <small>{detalle.id}</small>
+                        <div className='detalle-text'>
+                            <h2>{detalle.nombre}</h2>
+                            <div className='detalle-id'>
+                                <small>{detalle.id}</small>
+                            </div>
+                            <p>¡Descubre todo lo que tiene para ofrecer! Este increíble país del continente <span>{detalle.continente}</span> es el hogar de una hermosa capital <span>{detalle.capital ? detalle.capital : null}</span> y una subregión única como lo es <span>{detalle.subregion}</span> . Con una impresionante área de <span>{detalle.area}</span> km<sup>2</sup>y una población diversa de <span>{detalle.continente}</span> personas, hay algo para todos en <span>{detalle.nombre}</span>. Disfruta de la cultura local, explora la naturaleza y saborea la deliciosa comida típica. ¡No te pierdas la oportunidad de visitar este increíble destino turístico y experimentar todo lo que <span>{detalle.nombre}</span> tiene para ofrecer!</p>
                         </div>
-                        <p>¡Descubre todo lo que tiene para ofrecer! Este increíble país del continente <span>{detalle.continente}</span> es el hogar de una hermosa capital <span>{detalle.capital ? detalle.capital : null}</span> y una subregión única como lo es <span>{detalle.subregion}</span> . Con una impresionante área de <span>{detalle.area}</span> km<sup>2</sup>y una población diversa de <span>{detalle.continente}</span> personas, hay algo para todos en <span>{detalle.nombre}</span>. Disfruta de la cultura local, explora la naturaleza y saborea la deliciosa comida típica. ¡No te pierdas la oportunidad de visitar este increíble destino turístico y experimentar todo lo que <span>{detalle.nombre}</span> tiene para ofrecer!</p>
                     </div>
                 </div>
             )};
@@ -42,37 +44,3 @@ export const CountryDetails = ({ id }) => {
 
 
 
-
-// import React, { useEffect, useState } from 'react'
-// import { Country } from './Country';
-// import { useSelector, useDispatch } from "react-redux";
-// import { getAllCountry } from '../redux/actions';
-// import "./CountryList.css";
-// import { Loader } from './Loader'
-
-
-
-
-// export const CountryList = () => {
-//   const country = useSelector(state => state.countries)
-//   const dispatch = useDispatch();
-//   const [isLoading, setIsLoading] = useState(true);
-
-
-//   useEffect(() => {
-//     dispatch(getAllCountry());
-//     setIsLoading(false);
-//   }, [dispatch]);
-
-//   return (
-//    <>
-//     <div className="container-country">
-//       {isLoading ? (
-//         <Loader />) : (
-//         country.map(pais => <Country key={pais.id} pais={pais} />)
-//       )}
-//     </div>
-
-//   </>
-//   )
-// }

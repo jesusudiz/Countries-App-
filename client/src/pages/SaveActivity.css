@@ -98,7 +98,7 @@ width:100%
   width: 5em;
   border: none;
   border-radius: 10em;
-  background: #ff0303bd;
+  background: #ffff01;
   font-size: 17px;
   font-family: inherit;
   font-weight: 500;
@@ -107,7 +107,8 @@ width:100%
   cursor:pointer
 }
 .btn-regresar a{
-  color:white;
+  color:rgb(19, 18, 18);
+  font-weight: inherit;
 }
 
 

@@ -8,6 +8,7 @@ const getCountries = async (req, res) => {
 
         if (name) {
             const nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+            console.log(nameCapitalized);
             const country = await Country.findOne({
                 where: { nombre: nameCapitalized }
             });
@@ -50,10 +51,6 @@ const postActivities = async (req, res) => {
             throw new Error("Faltan parámetros, por favor ingrese todos los datos");
         }
 
-        // if (isNaN(dificultad) || isNaN(duracion)) {
-        //     throw new Error("La dificultad debe ser un entero y la duración debe ser un número");
-        // }
-
         const activity = {
             nombre,
             dificultad,
@@ -67,22 +64,22 @@ const postActivities = async (req, res) => {
         const paises = activity.pais;
 
         for (const i of paises) {
-            const wantedContry = await Country.findOne({
+            const wantedCountry = await Country.findOne({
                 where: { nombre: i }
             });
             if (!wantedCountry) {
                 throw new Error(`El país ${i} no existe en la base de datos`);
             }
-            const countryId = wantedContry.id;
+            const countryId = wantedCountry.id;
             await activity.addCountry(countryId);
         }
 
 
         return res.status(201).send({ message: "Creado exitosamente" });
     } catch (error) {
-        return res.status(400).send({ 
-            error: 'Error al crear la actividad', 
-            message: error.message 
+        return res.status(400).send({
+            error: 'Error al crear la actividad',
+            message: error.message
         });
     }
 };

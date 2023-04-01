@@ -28,7 +28,7 @@ describe('code', () => {
   });
   
   it('should throw an error if the maximum length is exceeded', (done) => {
-    Country.create({ name: 'Argentina', code: 'ABC' })
+    Country.create({ name: 'Argentina', code: 'AR' })
       .then(() => done(new Error('The maximum length of code has been exceeded')))
       .catch(() => done());
   });

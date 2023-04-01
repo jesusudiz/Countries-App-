@@ -80,6 +80,9 @@
   align-items: center;
   cursor: pointer
 }
+.form-btn :hover{
+  cursor: pointer
+}
 
 .form-content input:hover,
 .form-content input:focus,
@@ -91,4 +94,9 @@
 #duracion,
 #dificultad {
   width: 90px;
+}
+
+#pais{
+  width:130px;
+  height:100px;
 }

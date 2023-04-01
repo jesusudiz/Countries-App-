@@ -35,7 +35,7 @@ export const getCountryById = (id) => async dispatch => {
 export const getByNameCountry =  (name) => async dispatch => {
   try {
     const res = await axios.get('http://localhost:3001/countries');
-    const data = res.data.filter(country=>country.nombre === name)
+    const data = res.data.filter(country=>country.nombre.toLowerCase() === name.toLowerCase())
     dispatch({
       type: GET_BY_NAME_COUNTRY,
       payload: data
@@ -79,6 +79,8 @@ export const addActivities = (activityData) => {
   return async (dispatch) => {
     try {
       const response = await axios.post("http://localhost:3001/activities", activityData);
+      console.log(response.data)
+      alert(response.data)
       dispatch({ type: ADD_ACTIVITIES, payload: response.data });
     } catch (error) {
       console.log(error);

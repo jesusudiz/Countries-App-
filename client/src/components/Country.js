@@ -19,8 +19,10 @@ const selectFavorites = (e) => {
    
     if (e.target.checked) {
       dispatch(addFavorites(e.target.value));
+      
     } else {
       dispatch(deleteFavorites(e.target.value));
+      
     }
   }
 

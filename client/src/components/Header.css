@@ -91,7 +91,7 @@ input:valid~label {
   font-weight: bold;
   position: relative;
   text-transform: uppercase;
-  color:#f84e01;
+  color:#ffff01;
   /* -webkit-text-stroke: 1px var(--text-stroke-color); */
 
 }

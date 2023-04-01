@@ -94,7 +94,8 @@ position: relative;
 }
 .country-btn button:hover{
   color: #fff;
-  border: 1px solid rgb(8, 8, 8);;
+  border: 1px solid rgb(8, 8, 8);
+  background-color:black
 }
 
 .country-btn button:hover::before{
